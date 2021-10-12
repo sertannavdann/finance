@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell " method="post">
+        <div class="form-group">
+            <select name="symbol">
+                {% for symbol in symbols %}
+                <option>{{ symbol["symbol"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="total_shares">
+                {% for share in total_shares %}
+                <option>{{ share["total_shares"] }}</option>
+                {% endfor %}
+            </select>
+            <input class="form-control" name="shares" placeholder="Amount of Share" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell  This Share</button>
+    </form>
+{% endblock %}
